@@ -11,7 +11,7 @@ class User(database.Entity):
     name:str = Required(str, 30)
     # name:str = Required(str, 30, index='name')
     bot_on:bool = Required(bool, index='bot_on')
-    account_balance:Decimal = Required(Decimal, default=Decimal(10000.0))
+    account_balance:Decimal = Required(Decimal, default=Decimal(200.0))
     
     @db_session
     def cost(self,value:float):

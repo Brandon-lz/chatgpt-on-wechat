@@ -11,7 +11,7 @@ def init_user(user_name:str,user_id:str)->Tuple[User,bool]:
     user:User =  User.get(user_id=user_id)
     if user is not None:
         return user,False
-    return User(name=user_name,user_id=user_id,bot_on=False),True
+    return User(name=user_name,user_id=user_id,bot_on=False,account_balance=Decimal(200.0)),True
 
 @db_session
 def retrieve_user(user_id:str)->User:

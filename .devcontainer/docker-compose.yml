@@ -36,3 +36,8 @@ services:
 
 # volumes:
 #   postgres-data:
+
+
+
+# export https_proxy=http://10.30.24.88:7890
+# export http_proxy=http://10.30.24.88:7890
