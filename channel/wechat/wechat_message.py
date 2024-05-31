@@ -6,6 +6,8 @@ from common.log import logger
 from common.tmp_dir import TmpDir
 from lib import itchat
 from lib.itchat.content import *
+import json
+
 
 class WechatMessage(ChatMessage):
     def __init__(self, itchat_msg, is_group=False):
@@ -90,6 +92,7 @@ class WechatMessage(ChatMessage):
                 self.self_display_name = itchat_msg["User"].get("Self").get("DisplayName")
         except KeyError as e:  # 处理偶尔没有对方信息的情况
             logger.warn("[WX]get other_user_id failed: " + str(e))
+            logger.warn(json.dumps(itchat_msg))
             if self.from_user_id == user_id:
                 self.other_user_id = self.to_user_id
             else:

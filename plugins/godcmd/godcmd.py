@@ -262,20 +262,20 @@ class Godcmd(Plugin):
                                 break
                         if not ok:
                             result = "插件不存在或未启用"
-                elif cmd == "model":
-                    if not isadmin and not self.is_admin_in_group(e_context["context"]):
-                        ok, result = False, "需要管理员权限执行"
-                    elif len(args) == 0:
-                        model = conf().get("model") or const.GPT35
-                        ok, result = True, "当前模型为: " + str(model)
-                    elif len(args) == 1:
-                        if args[0] not in const.MODEL_LIST:
-                            ok, result = False, "模型名称不存在"
-                        else:
-                            conf()["model"] = self.model_mapping(args[0])
-                            Bridge().reset_bot()
-                            model = conf().get("model") or const.GPT35
-                            ok, result = True, "模型设置为: " + str(model)
+                # elif cmd == "model":
+                #     if not isadmin and not self.is_admin_in_group(e_context["context"]):
+                #         ok, result = False, "需要管理员权限执行"
+                #     elif len(args) == 0:
+                #         model = conf().get("model") or const.GPT35
+                #         ok, result = True, "当前模型为: " + str(model)
+                #     elif len(args) == 1:
+                #         if args[0] not in const.MODEL_LIST:
+                #             ok, result = False, "模型名称不存在"
+                #         else:
+                #             conf()["model"] = self.model_mapping(args[0])
+                #             Bridge().reset_bot()
+                #             model = conf().get("model") or const.GPT35
+                #             ok, result = True, "模型设置为: " + str(model)
                 elif cmd == "id":
                     ok, result = True, user
                 elif cmd == "set_openai_api_key":

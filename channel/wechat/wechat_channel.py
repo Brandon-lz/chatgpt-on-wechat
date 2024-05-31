@@ -59,7 +59,9 @@ def _check(func):
         if conf().get("hot_reload") == True and int(create_time) < int(time.time()) - 60:  # 跳过1分钟前的历史消息
             logger.debug("[WX]history message {} skipped".format(msgId))
             return
-        if cmsg.my_msg and not cmsg.is_group:
+        if cmsg.my_msg and not cmsg.is_group and not (cmsg.to_user_id=='filehelper'):
+            # import json
+            logger.debug((cmsg))
             logger.debug("[WX]my message {} skipped".format(msgId))
             return
         return func(self, cmsg)
@@ -114,7 +116,7 @@ class WechatChannel(ChatChannel):
 
     def startup(self):
         try:
-            itchat.instance.receivingRetryCount = 600  # 修改断线超时时间
+            itchat.instance.receivingRetryCount = 600*20  # 修改断线超时时间
             # login by scan QRCode
             hotReload = conf().get("hot_reload", False)
             status_path = os.path.join(get_appdata_dir(), "itchat.pkl")

@@ -1,20 +1,23 @@
 {
   "channel_type": "wx",
   "model": "",
-  "open_ai_api_key": "YOUR API KEY",
+  "open_ai_api_key": "sk-oAr4ETKWwojedwl3F1C1124170694a378cBb4771F4FcEc9a",
+  "open_ai_api_base": "https://api.xi-ai.cn/v1",
   "claude_api_key": "YOUR API KEY",
   "text_to_image": "dall-e-2",
   "voice_to_text": "openai",
   "text_to_voice": "openai",
   "proxy": "",
-  "hot_reload": false,
+  "hot_reload": true,
   "single_chat_prefix": [
     "bot",
-    "@bot"
+    "@bot",
+    ""
   ],
   "single_chat_reply_prefix": "[bot] ",
   "group_chat_prefix": [
-    "@bot"
+    "@bot",
+    "@玖成^O^"
   ],
   "group_name_white_list": [
     "ChatGPT测试群",
